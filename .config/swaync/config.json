@@ -1,0 +1,110 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "cssPriority": "user",
+    "positionX": "right",
+    "positionY": "top",
+    "control-center-width": 380,
+    "control-center-height": 860,
+    "control-center-margin-top": 2,
+    "control-center-margin-bottom": 2,
+    "control-center-margin-right": 0,
+    "control-center-margin-left": 0,
+    "notification-window-width": 400,
+    "notification-icon-size": 48,
+    "notification-body-image-height": 0,
+    "notification-body-image-width": 0,
+    "timeout": 4,
+    "timeout-low": 2,
+    "timeout-critical": 6,
+    "fit-to-screen": true,
+    "keyboard-shortcuts": true,
+    "image-visibility": "when-available",
+    "script-fail-notify": true,
+    "scripts": {
+        "example-script": {
+            "exec": "echo 'Do something...'",
+            "urgency": "Normal"
+        }
+    },
+    "notification-visibility": {
+        "example-name": {
+            "state": "muted",
+            "urgency": "Low",
+            "app-name": "Spotify"
+        }
+    },
+    "widgets": [
+        "label",
+        "buttons-grid",
+        "volume",
+        "backlight",
+        "mpris",
+        "title",
+        "dnd",
+        "notifications"
+    ],
+    "widget-config": {
+        "title": {
+            "text": "Уведомления",
+            "clear-all-button": true,
+            "button-text": " 󰎟 "
+        },
+        "dnd": {
+            "text": "Не беспокоить"
+        },
+        "label": {
+            "max-lines": 1,
+            "text": " "
+        },
+        "mpris": {
+            "image-size": 96,
+            "image-radius": 12,
+            "show-album-art": "playing",
+            "blacklist": [
+                "firefox",
+                "chromium",
+                "brave",
+                "mpv",
+                "playerctl"
+            ],
+            "autohide": true,
+            "prefer": [
+                "spotify"
+            ]
+        },
+        "volume": {
+            "label": "",
+            "show-per-app": false
+        },
+        "buttons-grid": {
+            "buttons-per-row": 5,
+            "actions": [
+                {
+                    "label": "",
+                    "command": "nm-connection-editor"
+                },
+                {
+                    "label": "󰂯",
+                    "command": "blueman-manager"
+                },
+                {
+                    "label": "",
+                    "command": "amixer set Capture toggle"
+                },
+                {
+                    "label": "",
+                    "command": "~/.config/swaync//scripts/gammastep.sh toggle;"
+                },
+                {
+                    "label": "󰝟",
+                    "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+                    "type": "toggle"
+                }
+            ]
+        },
+        "backlight": {
+            "label": "",
+            "device": "amdgpu_bl2"
+        }
+    }
+}
